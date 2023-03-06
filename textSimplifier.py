@@ -1,7 +1,13 @@
 ## import os
 import pandas as pd
 
-txt = ['act', 'and', 'warrant','act', 'and', 'warrant', 'extra']
+txtString = "The Acts of Adjournal are important" # ['act', 'and', 'warrant','act', 'and', 'warrant', 'extra']
+
+txtString = "The Adult Support and Protection 2007 Act is designed to protect those adults who are unable to safeguard their own interests and are at risk of harm because they are affected by"
+
+txtString = txtString.lower()
+cleanString = re.sub('\W+','', txtString )
+txt = txtString.split(" ")
 
 df_legalTerms = pd.read_csv("legalWordsExplained.csv")
 df_legalTerms['legalWords'] = df_legalTerms['legalWords'].replace({':':''}, regex=True)
